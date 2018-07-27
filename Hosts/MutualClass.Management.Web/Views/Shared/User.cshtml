@@ -1,0 +1,33 @@
+﻿@using Sample.Management.Web.Services
+@using Sample.Core
+@using Autofac 
+@{ 
+    var User = CoreBuilderWork.LifetimeScope.Resolve<UserService>().GetUserInfo();
+}
+<!--公共头部-->
+<div class="index_title clearfix">
+    <span class="index_list"></span>
+    <a href="" class="index_person">
+        <i></i>
+        <span>@User.RealName </span>
+        <input type="hidden" id="hidRealName" value="@User.RealName" />
+        <input type="hidden" id="hidAccountId" value="@User.AccountId" />
+        <input type="hidden" id="hidParentAccountId" value="@User.AccountParentId" />
+    </a> 
+    @if (User.AccountId == "19F0C7A156FB4AB88B16A038DEED2012")
+    {
+        <a href="#" class="index_myperson" style="display: none;">我的账户</a>
+    }
+    else
+    {
+        <a href="@Url.RouteUrl("Sample_Account", new { controller = "Account", action = "MyAccount" })?accountId=@User.AccountId" class="index_myperson" style=" display: none;">我的账户</a>
+    }
+
+   <a href="@Url.RouteUrl("Sample_Account", new { controller = "Account", action = "SignOut" })" class="index_quit" style="display: none;">退出</a>
+      @*<a href="#" class="index_message">
+        <i></i>
+        <span>信息</span>
+    </a>*@
+</div>
+<!--/公共头部-->
+ 

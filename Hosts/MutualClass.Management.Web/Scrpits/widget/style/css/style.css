@@ -1,0 +1,130 @@
+body,p,h1,h2,h3,h4,h5,h6,dd,dl,dt,th,td,ul,li,ol,form,input,select,textarea,button,pre,legend{ margin:0;padding:0;font-family:"微软雅黑",helvetica,arial;}
+button, input, select, textarea { vertical-align:middle; font-family:"微软雅黑",helvetica,arial; -webkit-appearance:none;}
+h1, h2, h3, h4, h5, h6 { font-size:100%;}
+table{border-collapse:collapse;border-spacing:0;}
+img,fieldset{ border:0;}
+address,cite,dfn,em,var,i{font-style:normal;}
+ul,ol{list-style-type:none;}
+sup{ vertical-align: text-top; }
+sub{ vertical-align: text-bottom; }
+
+a{ text-decoration:none; cursor:pointer; color: #000000;}
+select,input,textarea{ outline:none;}
+.fl{float:left;}
+.fr{float:right;}
+.clear {clear: both;}
+.clearfix:after {clear:both; content:'';display: block;font-size: 0;line-height: 0;visibility: hidden;	width: 0;height: 0;}
+.clearfix {+display: inline-block;}
+* html .clearfix {height: 1%;}
+.lyl_file{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.lyl_file_hov{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: 0.4;
+	filter: progid:DXImageTransform.Microsoft.Alpha(opacity=40);
+	z-index: 10;
+}
+.lyl_file_main{
+	position: relative;
+	z-index: 100;
+	width: 700px;
+	height: 500px;
+	margin: 100px auto;
+	border: 1px solid #999999;
+	background: #fff;
+}
+.lyl_file_top{
+	position: relative;
+	height: 50px;
+	border-bottom: 1px solid #999999;
+}
+.lyl_file_top a{
+	position: absolute;
+	right: 15px;
+	top: 15px;
+	font-size: 20px;
+	color: #999999;
+	background: url(../images/x.png) no-repeat;
+	width: 20px;
+	height: 20px;
+	background-size: 100%;
+}
+.lyl_file_mid ul{
+	display: block;
+	margin: 20px auto;
+	width:670px ;
+}
+.lyl_file_mid ul li{
+	display: inline-block;
+	margin-right: 15px;
+	margin-bottom: 15px;
+	position: relative;
+}
+.lyl_file_on{
+	position: absolute;
+	top: 0;
+	left: 0;
+	border: 1px solid #fba00f;
+	background: url(../images/get.png) no-repeat;
+	width: 90px;
+	height: 90px;
+}
+.lyl_file_mid ul li img{
+	width: 90px;
+	height: 90px;
+	display: block;
+	border: 1px solid #999999;
+}
+.lyl_file_bot{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 150px;
+	margin: 0 auto;
+	margin-top: 50px;
+	padding-top:20px ;
+	border-top:  1px solid #999999;
+}
+.lyl_file_bot ul li{
+	display: inline-block;
+	margin-left:15px;
+	position: relative;
+}
+.lyl_file_bot ul li a{
+	position: absolute;
+	bottom: 2px;
+	right: 2px;
+	background: url(../images/xs.png) no-repeat;
+	background-size: 100%;
+	width: 15px;
+	height: 15px;
+}
+.lyl_file_bot ul li img{
+	width: 70px;
+	height: 70px;
+	display: block;
+	border: 1px solid #999999;
+}
+.lyl_file_bot button{
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	width: 100px;
+	line-height: 40px;
+	display: block;
+	background: #999999;
+	color: #FFFFFF;
+	font-size: 14px;
+	border: none;
+}

@@ -1,0 +1,49 @@
+/*======================
+	company:daoking.cn
+	author:HPQ
+	e-mail:370729924@qq.com
+	date:2016-01-12
+======================*/
+
+
+/*设备分辨率兼容*/
+@media only screen and (max-width: 320px){ /*iphone5*/
+    html,body{font-size: 16px;}
+}
+@media only screen and (max-width: 360px) and (min-width: 321px){
+  	html,body{font-size: 17px;}
+}
+@media only screen and (max-width: 375px) and (min-width: 361px){
+    html,body{font-size: 18px;}
+}
+@media only screen and (max-width: 390px) and (min-width: 376px){
+    html,body{font-size: 19px;}
+}
+@media only screen and (max-width: 415px) and (min-width: 391px){/*iphone6 plus*/
+  	html,body{font-size: 20px;}
+}
+@media only screen and (max-width: 430px) and (min-width: 416px){/*部分android eg:LG optimus 424*753*/
+    html,body{font-size: 20px;}
+}
+@media only screen and (max-width: 480px) and (min-width: 431px){/*iphone4横屏*/
+    html,body{font-size: 21px;}
+}
+@media only screen and (max-width: 540px) and (min-width: 481px){/*部分android横屏*/
+    html,body{font-size: 21px;}
+}
+@media only screen and (max-width: 570px) and (min-width: 541px){/*iphone5横屏568*/
+    html,body{font-size: 22px;}
+}
+@media only screen and (min-width: 640px){ /*容器max-width*/
+  	html,body{font-size: 22px;}
+  	.w_screen{
+  		width: 640px;
+  		left: 50%;
+  		margin-left: -320px;
+  	}
+}
+
+
+
+
+

@@ -1,0 +1,174 @@
+﻿ <div class="index_sta" id="div_area">
+    <div class="is_top clearfix">
+        <div class="clearfix is_topP">
+            <span>区域代理发展</span>
+            <button class="staButton fr" id="btn_area">搜索</button>
+            <input class="laydate-icon di fr" id="time_to">
+            <i class="fr index_line"></i>
+            <input class="laydate-icon time_from di fr" id="time_from">
+            <div class="placearea fr di">
+                <select name="province" id="selProvince_area"></select>
+                <select name="city" id="selCity_area"></select>
+                <select name="area" id="selArea_area"></select>
+            </div>
+        </div>
+    </div>
+    <div class="is_chart">
+        <div id="main_area" style="width: 800px;height:350px;margin:0 auto;">
+
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+    $(function () {
+        var date = new Date();
+        var ms = 30 * (1000 * 60 * 60 * 24);
+        var startTime = formatDate(new Date(date.getTime() - ms), "yyyy-mm-dd");
+        var endTime = formatDate(new Date(), "yyyy-mm-dd");
+        $("#time_to").val(endTime); 
+        $("#time_from").val(startTime); 
+       
+        AreaSource(); 
+        provinceGbCode1();
+
+        $("#selProvince_area").on("change", function () {
+            $("#selCity_area").empty();
+            $("#selArea_area").empty();
+            cityGbCode1($(this).val(),3);
+        });
+        $("#selCity_area").on("change", function () {
+            $("#selArea_area").empty();
+            areaGbCode1($("#selProvince_area").find("option:selected").val(), $(this).val(), 3);
+        });
+
+        $("#btn_area").on("click", function () {
+            AreaSource();
+        });
+        $("#btn_discount").on("click", function () {
+            DiscountSource();
+        });
+    });
+
+    function AreaEchartsBind(xAxisData, seriesData) {
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main_area'));
+
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: '区域代理发展'
+            },
+            tooltip: {
+                borderColor: "#333"
+            },
+            legend: {
+                data: ['数量'],
+                show: true,
+                borderColor: '#6CD0E8'
+            },
+            xAxis: {
+                type: 'category',
+                data: xAxisData
+            },
+            yAxis: {},
+            series: [{
+                name: '数量',
+                type: 'line',
+                areaStyle: { normal: { color: '#6CD0E8' } },
+                lineStyle: { normal: { color: '#6CD0E8' } },
+                ItemStyle: { normal: { color: '#6CD0E8' } },
+                data: seriesData
+            }]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    }
+
+    function AreaSource() {
+        var d;
+        $.ajax({
+            url: '@Url.Action("QuesMerchantsStatisticalByTimeSource")',
+            type: "post",
+            dataType: "json",
+            data: {
+                t: new Date().getDate(),
+                level: 3,
+                provinceId: $("#selProvince_area").find("option:selected").val() == "-1" ? "" : $("#selProvince_area").find("option:selected").val(),
+                cityId: $("#selCityId_area").find("option:selected").val() == "-1" ? "" : $("#selCityId_area").find("option:selected").val(),
+                areaId: $("#selAreaId_area").find("option:selected").val() == "-1" ? "" : $("#selAreaId_area").find("option:selected").val(),
+                startTime: $("#time_from").val(),
+                endTime: $("#time_to").val()
+            },
+            beforeSend: function () {
+                //d = dialog_loading();
+            },
+            error: function () {
+                //dialog_loadingClose(d);
+                dialog({ contentType: 'tipsbox', skin: 'bk-popup', content: '服务器繁忙', closeTime: 2000 }).show();
+            },
+            success: function (res) {
+               // dialog_loadingClose(d);
+                if (res.success) {
+                    var seriesData = [];
+                    var xAxisData = [];
+                    $(res.result.Data).each(function (i, item) {
+                        seriesData.push(item.SigningCount);
+                        xAxisData.push(item.SigningDateTime);
+                    });
+                    var total = res.result.Total;
+                    AreaEchartsBind(xAxisData, seriesData);
+                }
+            }
+        });
+    }
+    
+    function provinceGbCode1() {
+        var provinceHtml = "<option value='-1'>-省份-</option>";
+        $(_cityAreaData).each(function (i, v) {
+            provinceHtml += " <option value=" + v['c'] + ">" + v['n'] + "</option>";
+        });
+        $("#selProvince_area").append(provinceHtml);
+
+        var cityHtml = "<option value='-1'>-城市-</option>";
+        $("#selCity_area").append(cityHtml);
+        var areaHtml = "<option value='-1'>-区县-</option>";
+        $("#selArea_area").append(areaHtml);
+    }
+
+    function cityGbCode1(provinceId) {
+        var cityHtml = "<option value='-1'>-城市-</option>";
+        $(_cityAreaData).each(function (i, v) {
+            if (v['c'] == provinceId) {
+                var _cityData = v['r'];
+                $(_cityData).each(function (j, m) {
+                    cityHtml += " <option value=" + m['c'] + ">" + m['n'] + "</option>";
+                });
+            }
+        });
+        $("#selCity_area").append(cityHtml);
+        var areaHtml = "<option value='-1'>-区县-</option>";
+        $("#selArea_area").append(areaHtml);
+    }
+     
+    function areaGbCode1(provinceId, cityId) {
+        var areaHtml = "<option value='-1'>-区县-</option>";
+        $(_cityAreaData).each(function (i, v) {
+            if (v['c'] == provinceId) {
+                var _cityData = v['r'];
+                $(_cityData).each(function (j, m) {
+                    if (m['c'] == cityId) {
+                        var _areaData = m['r'];
+                        $(_areaData).each(function (k, z) {
+                            areaHtml += " <option value=" + z['c'] + ">" + z['n'] + "</option>";
+                        });
+                    }
+                });
+            }
+        });
+        $("#selArea_area").append(areaHtml);
+    }
+</script>
+

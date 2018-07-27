@@ -1,0 +1,64 @@
+﻿@using Autofac
+@using Sample.Core
+@using Sample.Management.Web
+@using Sample.Management.Web.Utility
+@{ 
+    var ArrayMenu = CoreBuilderWork.LifetimeScope.Resolve<AdminMenu>().MenuItem(ViewBag.filterContext);
+    var resourceUrl = SystemConfig.ResourceUri;
+}
+<div class="index_left"> 
+    <h1>
+        <img src="@resourceUrl/image/admin/logo_chinese.png" />
+    </h1>
+    <div class="index_menu">
+        
+        @foreach (var item in ArrayMenu)
+        {
+            if (!string.IsNullOrEmpty(item.Url))
+            {
+                <h3 class="Collapsing @(item.IsShow == true ? "coll_hov" : "")" onclick="javascript: window.location.href='@item.Url'">
+                    <i><img src="@resourceUrl/image/admin/@item.Icon" /></i>
+                    <span>@item.Menu</span>
+                </h3>
+            }
+            else
+            {
+                <h3 class="Collapsing @(item.IsShow == true ? "coll_hov" : "")">
+                    <i><img src="@resourceUrl/image/admin/@item.Icon" /></i>
+                    <span>@item.Menu</span>
+                </h3>
+            }
+            <div class="coll_body" style="display:@(item.IsShow == true ? "block;" : "none;")">
+                @foreach (var child in item.ChildMenu)
+                {
+                    <a class="@(child.IsShow == true ? "coll_Shov" : "")" href="@child.Url">
+                        <i></i>
+                        <span>@child.Menu</span>
+                    </a>
+                }
+            </div>
+        }
+
+    </div>
+</div>
+
+<div class="index_lefts" style="display: none;">
+    <ul>
+        <li class="btn_bg"><i></i></li>
+        @foreach (var item in ArrayMenu)
+        {
+            var url = item.Url;
+            if (string.IsNullOrEmpty(url))
+            {
+                url = item.ChildMenu[0].Url;
+            }
+            <li>
+                <a href="@url" class="@(item.IsShow == true ? "on" : "")">
+                    <img src="@resourceUrl/image/admin/@item.IconVice" class="di">
+                    <em style="display: none;">@item.Menu</em>
+                </a>
+            </li>
+        }
+    </ul>
+</div>
+ 

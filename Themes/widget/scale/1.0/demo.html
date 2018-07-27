@@ -1,0 +1,128 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>图片预览缩放</title>
+<meta name="author" content="yihu.com"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<link rel="stylesheet" href="../../../cross/css/cross.css" type="text/css" />
+<link rel="stylesheet" href="../../../../css/style.css" type="text/css" />
+<script src="../../../cross/js/jquery/2.1.3/jquery.js"></script>
+<script src="js/scale.min.js"></script>
+</head>
+<style>
+body{ padding:20px;}
+.scalehold{ margin-top:10px; overflow:hidden;}
+.scalehold li{ float:left; margin:0 10px 10px 0;}
+.scalehold img{ width:50px; height:50px;}
+/*图片缩放弹框样式*/
+.imgzoom-pack { width: 100%; height: 100%; position: fixed; left: 0; top: 0; background: rgba(0, 0, 0, .7); display: none; z-index: 1100; }
+.imgzoom-pack:after { content: ""; position: absolute; height: 50px; line-height: 50px; width: 100%; bottom: 0; left: 0; background: rgba(0, 0, 0, .5); z-index: 5; }
+.imgzoom-pack .imgzoom-x { color: #fff; height: 50px; width: 60px; line-height: 50px; text-align: center; font-size: 17px; position: absolute; left: 0; bottom: 0; z-index: 10; cursor: pointer; }
+.imgzoom-x.k-right { right: 0; left: auto; }
+.imgzoom-del { color: #fff; height: 50px; width: 60px; line-height: 50px; vertical-align: middle; text-align: center; position: absolute; right: 0; bottom: 0; z-index: 10; cursor: pointer; }
+.imgzoom-del span{ display:block; width:20px; height:21px; border:2px solid #fff; border-top:none; position:absolute; left:50%; margin-left:-10px; top:18px;}
+.imgzoom-del span:before{ content:''; display:block; width:6px; height:16px; border-left:2px solid #fff; border-right:2px solid #fff; position:absolute; left:5px; top:2px;}
+.imgzoom-del span i{ display:block; width:30px; height:2px; background:#fff; position:absolute; left:-5px; top:-5px;}
+.imgzoom-del span i:before{ content:''; display:block; width:11px; height:2px; background:#fff; position:absolute; left:9px; top:-5px;}
+.imgzoom-pack .imgzoom-img { width: 100%; height: 100%; position: absolute; left: 0; top: 0; overflow: hidden; }
+.imgzoom-pack .imgzoom-img img { width: 100%; position: absolute; top: 50%; }
+</style>
+<body>
+    <h1>图片预览缩放</h1>
+    <div class="scalehold">
+        <ul>
+            <li><img src="http://ued.yihu.cn/framework/images/face.png" /></li>
+            <li><img src="http://ued.yihu.cn/framework/images/face.png" /></li>
+            <li><img src="http://ued.yihu.cn/framework/images/face.png" /></li>
+        </ul>
+    </div>
+    <!-- 放置要缩放的图片的容器 -->
+    <section class="imgzoom-pack">
+        <div class="imgzoom-x">关闭</div>
+        <div class="imgzoom-del"><span><i></i></span></div>
+        <div class="imgzoom-img"><img src="" /></div>
+    </section>
+    <script>
+		//图片缩放
+		function scaleRefresh(dom){				
+			ImagesZoom.init({
+				"elem": dom,
+				"delBack":function(index){
+					alert(index);
+					$(dom).find("li").eq(index).remove();						
+				}
+			});
+			
+		}
+		
+        $(function () {
+            //图片缩放（ 动态添加了上传的图片后运行一下下面这条这个）
+			scaleRefresh(".scalehold");
+        });
+    </script>
+    <h4 class="mt20 c-f14">放置要缩放的图片的容器:</h4>
+    <div class="">
+<pre><code class="html">
+    &lt!-- 放置要缩放的图片的容器 --&gt;
+    &lt;section class="imgzoom-pack"&gt;
+        &lt;div class="imgzoom-x"&gt;关闭&lt;/div&gt;
+        &lt;div class="imgzoom-del"&gt;&lt;span&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;
+        &lt;div class="imgzoom-img"&gt;&lt;img src="" /&gt;&lt;/div&gt;
+    &lt;/section&gt;
+</code></pre>
+    </div>
+    
+    <h4 class="mt20 c-f14">需引用css:</h4>
+    <div class="">
+<pre><code class="html">
+    .imgzoom-pack { width: 100%; height: 100%; position: fixed; left: 0; top: 0; background: rgba(0, 0, 0, .7); display: none; z-index: 1100; }
+    .imgzoom-pack:after { content: ""; position: absolute; height: 50px; line-height: 50px; width: 100%; bottom: 0; left: 0; background: rgba(0, 0, 0, .5); z-index: 5; }
+    .imgzoom-pack .imgzoom-x { color: #fff; height: 50px; width: 60px; line-height: 50px; text-align: center; font-size: 17px; position: absolute; left: 0; bottom: 0; z-index: 10; cursor: pointer; }
+    .imgzoom-x.k-right { right: 0; left: auto; }
+    .imgzoom-del { color: #fff; height: 50px; width: 60px; line-height: 50px; vertical-align: middle; text-align: center; position: absolute; right: 0; bottom: 0; z-index: 10; cursor: pointer; }
+    .imgzoom-del span{ display:block; width:20px; height:21px; border:2px solid #fff; border-top:none; position:absolute; left:50%; margin-left:-10px; top:18px;}
+    .imgzoom-del span:before{ content:''; display:block; width:6px; height:16px; border-left:2px solid #fff; border-right:2px solid #fff; position:absolute; left:5px; top:2px;}
+    .imgzoom-del span i{ display:block; width:30px; height:2px; background:#fff; position:absolute; left:-5px; top:-5px;}
+    .imgzoom-del span i:before{ content:''; display:block; width:11px; height:2px; background:#fff; position:absolute; left:9px; top:-5px;}
+    .imgzoom-pack .imgzoom-img { width: 100%; height: 100%; position: absolute; left: 0; top: 0; overflow: hidden; }
+    .imgzoom-pack .imgzoom-img img { width: 100%; position: absolute; top: 50%; }
+</code></pre>
+    </div>
+    
+    <h4 class="mt20 c-f14">js代码:</h4>
+    <div class="">
+<pre><code class="html">
+    //图片缩放
+    function scaleRefresh(dom){				
+        ImagesZoom.init({
+            "elem": dom,
+            "delBack":function(index){
+                $(dom).find("li").eq(index).remove();						
+            }
+        });
+    }
+            
+    $(function(){
+    	//图片缩放（动态添加了上传的图片后运行一下下面这条这个）
+        scaleRefresh(".upload-img-list");
+    });
+</code></pre>
+    </div>
+<link rel="stylesheet" href="../../../../css/highlight.css" type="text/css" />
+<script type="text/javascript" src="../../../../js/highlight.js"></script>
+<script type="text/javascript" src="../../../../js/nicescroll.min.js"></script>
+<script type="text/javascript">
+    $(function() {
+        $('pre code').each(function(i, block) {
+            hljs.highlightBlock(block);
+        });
+
+        $('body').height($(window).height()).niceScroll({cursorborder:"",cursorcolor:"#cccdd1"});
+    });
+</script>
+</body>
+</html>

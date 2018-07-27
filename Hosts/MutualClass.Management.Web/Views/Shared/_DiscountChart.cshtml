@@ -1,0 +1,177 @@
+﻿
+
+<div class="index_sta" id="div_discount">
+    <div class="is_top clearfix">
+        <div class="clearfix is_topP">
+            <span>折扣代理发展</span>
+            <button class="staButton fr" id="btn_discount">搜索</button>
+            <input class="laydate-icon di fr" id="time_to1">
+            <i class="fr index_line"></i>
+            <input class="laydate-icon time_from di fr" id="time_from1">
+            <div class="placearea fr di">
+                <select name="province" id="selProvince_discount"></select>
+                <select name="city" id="selCity_discount"></select>
+                <select name="area" id="selArea_discount"></select>
+            </div>
+        </div>
+    </div>
+    <div class="is_chart">
+        <div id="main_discount" style="width: 800px;height:350px;margin:0 auto;">
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        var date = new Date();
+        var ms = 30 * (1000 * 60 * 60 * 24);
+        var startTime = formatDate(new Date(date.getTime() - ms), "yyyy-mm-dd");
+        var endTime = formatDate(new Date(), "yyyy-mm-dd");
+        $("#time_to1").val(endTime);
+        $("#time_from1").val(startTime);
+      
+        DiscountSource();
+        provinceGbCode2();
+
+        $("#selProvince_discount").on("change", function () {
+            $("#selCity_discount").empty();
+            $("#selArea_discount").empty();
+            cityGbCode2($(this).val());
+        });
+        $("#selCity_discount").on("change", function () {
+            $("#selArea_discount").empty();
+            areaGbCode2($("#selProvince_discount").find("option:selected").val(), $(this).val());
+        });
+       
+        $("#btn_discount").on("click", function () {
+            DiscountSource();
+        });
+        
+    });
+ 
+    function DiscountEchartsBind(xAxisData, seriesData) {
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main_discount'));
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: '折扣代理发展'
+            },
+            tooltip: {
+                borderColor: "#333"
+            },
+            legend: {
+                data: ['数量'],
+                show: true,
+                borderColor: '#6CD0E8'
+            },
+            xAxis: {
+                type: 'category',
+                data: xAxisData
+            },
+            yAxis: {},
+            series: [{
+                name: '数量',
+                type: 'line',
+                areaStyle: { normal: { color: '#6CD0E8' } },
+                lineStyle: { normal: { color: '#6CD0E8' } },
+                ItemStyle: { normal: { color: '#6CD0E8' } },
+                data: seriesData
+            }]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    }
+
+    function DiscountSource() {
+        var d;
+        $.ajax({
+            url: '@Url.Action("QuesMerchantsStatisticalByTimeSource")',
+            type: "post",
+            dataType: "json",
+            data: {
+                t: new Date().getDate(),
+                level: 4,
+                provinceId: $("#selProvince_discount").find("option:selected").val() == "-1" ? "" : $("#selProvince_discount").find("option:selected").val(),
+                cityId: $("#selCityId_discount").find("option:selected").val() == "-1" ? "" : $("#selCityId_discount").find("option:selected").val(),
+                areaId: $("#selAreaId_discount").find("option:selected").val() == "-1" ? "" : $("#selAreaId_discount").find("option:selected").val(),
+                startTime: $("#time_from1").val(),
+                endTime: $("#time_to1").val()
+            },
+            beforeSend: function () {
+                //d = dialog_loading();
+            },
+            error: function () {
+               // dialog_loadingClose(d);
+                dialog({ contentType: 'tipsbox', skin: 'bk-popup', content: '服务器繁忙', closeTime: 2000 }).show();
+            },
+            success: function (res) {
+               // dialog_loadingClose(d);
+
+                if (res.success) {
+                    var seriesData = [];
+                    var xAxisData = [];
+                    $(res.result.Data).each(function (i, item) {
+                        seriesData.push(item.SigningCount);
+                        xAxisData.push(item.SigningDateTime);
+                    });
+                    var total = res.result.Total;
+                    DiscountEchartsBind(xAxisData, seriesData);
+                }
+            }
+        });
+    }
+
+ 
+ 
+
+
+
+    function provinceGbCode2() {
+        var provinceHtml = "<option value='-1'>-省份-</option>";
+        $(_cityAreaData).each(function (i, v) {
+            provinceHtml += " <option value=" + v['c'] + ">" + v['n'] + "</option>";
+        });
+        $("#selProvince_discount").append(provinceHtml);
+
+        var cityHtml = "<option value='-1'>-城市-</option>";
+        $("#selCity_discount").append(cityHtml);
+        var areaHtml = "<option value='-1'>-区县-</option>";
+        $("#selArea_discount").append(areaHtml);
+    }
+
+    function cityGbCode2(provinceId) {
+        var cityHtml = "<option value='-1'>-城市-</option>";
+        $(_cityAreaData).each(function (i, v) {
+            if (v['c'] == provinceId) {
+                var _cityData = v['r'];
+                $(_cityData).each(function (j, m) {
+                    cityHtml += " <option value=" + m['c'] + ">" + m['n'] + "</option>";
+                });
+            }
+        });
+        $("#selCity_discount").append(cityHtml);
+        var areaHtml = "<option value='-1'>-区县-</option>";
+        $("#selArea_discount").append(areaHtml);
+    }
+
+    function areaGbCode2(provinceId, cityId) {
+        var areaHtml = "<option value='-1'>-区县-</option>";
+        $(_cityAreaData).each(function (i, v) {
+            if (v['c'] == provinceId) {
+                var _cityData = v['r'];
+                $(_cityData).each(function (j, m) {
+                    if (m['c'] == cityId) {
+                        var _areaData = m['r'];
+                        $(_areaData).each(function (k, z) {
+                            areaHtml += " <option value=" + z['c'] + ">" + z['n'] + "</option>";
+                        });
+                    }
+                });
+            }
+        });
+        $("#selArea_discount").append(areaHtml);
+    }
+
+</script>
