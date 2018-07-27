@@ -197,7 +197,7 @@
     <Folder Include="UI\Datatables\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MutualClass.Core\Dragon.Core.csproj">
+    <ProjectReference Include="..\Dragon.Core\Dragon.Core.csproj">
       <Project>{ee8bbd8c-0a5b-444e-99cf-cb9787278c28}</Project>
       <Name>Dragon.Core</Name>
     </ProjectReference>

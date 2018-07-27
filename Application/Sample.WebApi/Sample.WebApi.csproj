@@ -237,15 +237,11 @@
     <Folder Include="Views\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Domain\MutualClass.Domain\Dragon.Domain.csproj">
-      <Project>{cd2109e4-7993-498f-95f5-a456e2df9655}</Project>
-      <Name>Dragon.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Infrastructure\MutualClass.Core\Dragon.Core.csproj">
+    <ProjectReference Include="..\..\Infrastructure\Dragon.Core\Dragon.Core.csproj">
       <Project>{ee8bbd8c-0a5b-444e-99cf-cb9787278c28}</Project>
       <Name>Dragon.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Infrastructure\MutualClass.Infrastructure\Dragon.Infrastructure.csproj">
+    <ProjectReference Include="..\..\Infrastructure\Dragon.Infrastructure\Dragon.Infrastructure.csproj">
       <Project>{6abde63c-b341-4434-8d11-d9525f07f369}</Project>
       <Name>Dragon.Infrastructure</Name>
     </ProjectReference>

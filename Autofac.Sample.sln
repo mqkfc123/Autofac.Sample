@@ -13,25 +13,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Themes", "Themes\Themes.csproj", "{DA514ED6-F0BC-4D36-86B7-88F90A43B981}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.WebApi", "Application\MutualClass.WebApi\Sample.WebApi.csproj", "{907E532D-3813-4BAC-8271-56923B83137F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.WebApi", "Application\Sample.WebApi\Sample.WebApi.csproj", "{907E532D-3813-4BAC-8271-56923B83137F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.WindowsService.Consumer", "Application\MutualClass.WindowsService.Consumer\Sample.WindowsService.Consumer.csproj", "{179B90C2-3A42-41A6-851C-377BEA763461}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.WindowsService.Consumer", "Application\Sample.WindowsService.Consumer\Sample.WindowsService.Consumer.csproj", "{179B90C2-3A42-41A6-851C-377BEA763461}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dragon.Domain", "Domain\MutualClass.Domain\Dragon.Domain.csproj", "{CD2109E4-7993-498F-95F5-A456E2DF9655}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dragon.Domain", "Domain\Dragon.Domain\Dragon.Domain.csproj", "{CD2109E4-7993-498F-95F5-A456E2DF9655}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.Management.Web", "Hosts\MutualClass.Management.Web\Sample.Management.Web.csproj", "{418F7828-BA5A-4372-A784-44D8A1A1FF79}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.Management.Web", "Hosts\Sample.Management.Web\Sample.Management.Web.csproj", "{418F7828-BA5A-4372-A784-44D8A1A1FF79}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dragon.Core", "Infrastructure\MutualClass.Core\Dragon.Core.csproj", "{EE8BBD8C-0A5B-444E-99CF-CB9787278C28}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dragon.Core", "Infrastructure\Dragon.Core\Dragon.Core.csproj", "{EE8BBD8C-0A5B-444E-99CF-CB9787278C28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dragon.Infrastructure", "Infrastructure\MutualClass.Infrastructure\Dragon.Infrastructure.csproj", "{6ABDE63C-B341-4434-8D11-D9525F07F369}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dragon.Infrastructure", "Infrastructure\Dragon.Infrastructure\Dragon.Infrastructure.csproj", "{6ABDE63C-B341-4434-8D11-D9525F07F369}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dragon.Repository", "Infrastructure\MutualClass.Repository\Dragon.Repository.csproj", "{BD7CA199-628C-4FC9-8B95-E7D62F0E8DFA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dragon.Repository", "Infrastructure\Dragon.Repository\Dragon.Repository.csproj", "{BD7CA199-628C-4FC9-8B95-E7D62F0E8DFA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.OAuth", "Application\Sample.OAuth\Sample.OAuth.csproj", "{E822F18C-6418-4002-A891-696196989070}"
 EndProject
 Global
-	GlobalSection(SubversionScc) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -69,6 +67,10 @@ Global
 		{BD7CA199-628C-4FC9-8B95-E7D62F0E8DFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD7CA199-628C-4FC9-8B95-E7D62F0E8DFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD7CA199-628C-4FC9-8B95-E7D62F0E8DFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E822F18C-6418-4002-A891-696196989070}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E822F18C-6418-4002-A891-696196989070}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E822F18C-6418-4002-A891-696196989070}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E822F18C-6418-4002-A891-696196989070}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -81,5 +83,6 @@ Global
 		{EE8BBD8C-0A5B-444E-99CF-CB9787278C28} = {E03636C9-FCD7-4556-89C1-8167AB99EEC0}
 		{6ABDE63C-B341-4434-8D11-D9525F07F369} = {E03636C9-FCD7-4556-89C1-8167AB99EEC0}
 		{BD7CA199-628C-4FC9-8B95-E7D62F0E8DFA} = {E03636C9-FCD7-4556-89C1-8167AB99EEC0}
+		{E822F18C-6418-4002-A891-696196989070} = {ABE533B4-A484-48D8-A194-9F2638B6D3E8}
 	EndGlobalSection
 EndGlobal
