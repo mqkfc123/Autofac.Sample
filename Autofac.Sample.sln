@@ -27,8 +27,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dragon.Infrastructure", "In
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dragon.Repository", "Infrastructure\Dragon.Repository\Dragon.Repository.csproj", "{BD7CA199-628C-4FC9-8B95-E7D62F0E8DFA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.OAuth", "Application\Sample.OAuth\Sample.OAuth.csproj", "{E822F18C-6418-4002-A891-696196989070}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,10 +65,6 @@ Global
 		{BD7CA199-628C-4FC9-8B95-E7D62F0E8DFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD7CA199-628C-4FC9-8B95-E7D62F0E8DFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD7CA199-628C-4FC9-8B95-E7D62F0E8DFA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E822F18C-6418-4002-A891-696196989070}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E822F18C-6418-4002-A891-696196989070}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E822F18C-6418-4002-A891-696196989070}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E822F18C-6418-4002-A891-696196989070}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -83,6 +77,5 @@ Global
 		{EE8BBD8C-0A5B-444E-99CF-CB9787278C28} = {E03636C9-FCD7-4556-89C1-8167AB99EEC0}
 		{6ABDE63C-B341-4434-8D11-D9525F07F369} = {E03636C9-FCD7-4556-89C1-8167AB99EEC0}
 		{BD7CA199-628C-4FC9-8B95-E7D62F0E8DFA} = {E03636C9-FCD7-4556-89C1-8167AB99EEC0}
-		{E822F18C-6418-4002-A891-696196989070} = {ABE533B4-A484-48D8-A194-9F2638B6D3E8}
 	EndGlobalSection
 EndGlobal
