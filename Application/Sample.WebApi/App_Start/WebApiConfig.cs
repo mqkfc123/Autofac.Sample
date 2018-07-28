@@ -18,6 +18,13 @@ namespace Sample.WebApi
                routeTemplate: "api/Account/{controller}/{id}",
                defaults: new { id = RouteParameter.Optional }
             );
+
+            config.Routes.MapHttpRoute(
+             name: "Mutual",
+             routeTemplate: "api/Mutual/{accessToken}/Scene/{controller}/{id}",
+             defaults: new { id = RouteParameter.Optional }
+          );
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",

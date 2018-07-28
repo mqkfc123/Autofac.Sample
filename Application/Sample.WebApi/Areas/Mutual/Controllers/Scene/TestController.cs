@@ -14,7 +14,7 @@ namespace Sample.WebApi.Areas.Mutual.Controllers.Scene
     /// 
     /// </summary> 
     [OAuth]
-    [Route("api/Mutual/Scene")]
+    [Route("api/Mutual/{accessToken}/Scene/Test")]
     public class TestController : ApiController
     {
         private readonly ILog _Logger = LogHelper.GetLogger(typeof(TestController));
