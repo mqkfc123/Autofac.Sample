@@ -8,6 +8,8 @@ using System.Web.Security;
 using System.Web.SessionState;
 using System.Web.Http;
 using Dragon.Core;
+using Dragon.Infrastructure.Redis;
+using System.Configuration;
 
 namespace Sample.OAuth
 {
@@ -23,6 +25,7 @@ namespace Sample.OAuth
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
             var coreBuilder = new CoreBuilder();
+            coreBuilder.UserRedis(ConfigurationManager.ConnectionStrings["RedisConnectionString"].ConnectionString);
             coreBuilder.Build();
         }
     }

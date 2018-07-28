@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace MutualClass.WebApi.App_Start
+namespace Sample.WebApi.App_Start
 {
     public class FilterConfig
     {

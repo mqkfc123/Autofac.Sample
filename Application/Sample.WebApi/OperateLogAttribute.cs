@@ -11,7 +11,7 @@ using System.Web;
 using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
 
-namespace MutualClass.WebApi
+namespace Sample.WebApi
 {
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = true, Inherited = true)]
     public class OperateLogAttribute : ActionFilterAttribute
@@ -37,7 +37,7 @@ namespace MutualClass.WebApi
                 HttpContextBase context = (HttpContextBase)objectContent["MS_HttpContext"];//获取传统context
                 HttpRequestBase request = context.Request;//定义传统request对象
 
-               // MutualClass_PubParams pubParams = null;
+               // Sample_PubParams pubParams = null;
 
                 switch (method)
                 {
@@ -55,7 +55,7 @@ namespace MutualClass.WebApi
 
                         if (!string.IsNullOrEmpty(pubParamsStr))
                         {
-                            //pubParams = JsonConvert.DeserializeObject<MutualClass_PubParams>(pubParamsStr);
+                            //pubParams = JsonConvert.DeserializeObject<Sample_PubParams>(pubParamsStr);
                         }
 
                         break;

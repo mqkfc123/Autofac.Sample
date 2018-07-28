@@ -10,7 +10,7 @@ using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
 using System.Web.Script.Serialization;
 
-namespace MutualClass.WebApi
+namespace Sample.WebApi
 {
     /// <summary>
     /// 开放cors协议，支持跨域访问

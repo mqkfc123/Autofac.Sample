@@ -1,17 +1,17 @@
 using System.Web.Http;
 using WebActivatorEx;
-using MutualClass.WebApi;
+using Sample.WebApi;
 using Swashbuckle.Application;
 
 [assembly: PreApplicationStartMethod(typeof(SwaggerConfig), "Register")]
 
-namespace MutualClass.WebApi
+namespace Sample.WebApi
 {
     public class SwaggerConfig
     {
         private static string GetXmlCommentsPath()
         {
-            return string.Format("{0}/bin/MutualClass.WebApi.XML", System.AppDomain.CurrentDomain.BaseDirectory);
+            return string.Format("{0}/bin/Sample.WebApi.XML", System.AppDomain.CurrentDomain.BaseDirectory);
         }
 
         public static void Register()
@@ -37,7 +37,7 @@ namespace MutualClass.WebApi
                         // hold additional metadata for an API. Version and title are required but you can also provide
                         // additional fields by chaining methods off SingleApiVersion.
                         //
-                        c.SingleApiVersion("v1", "MutualClass.WebApi");
+                        c.SingleApiVersion("v1", "Sample.WebApi");
 
                         // If you want the output Swagger docs to be indented properly, enable the "PrettyPrint" option.
                         //

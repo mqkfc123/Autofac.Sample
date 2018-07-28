@@ -1,7 +1,7 @@
 ﻿using System.Web.Http;
 using System.Web.Mvc;
 
-namespace MutualClass.WebApi.Areas.Admin
+namespace Sample.WebApi.Areas.Admin
 {
     /// <summary>
     /// 

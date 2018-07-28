@@ -9,7 +9,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace MutualClass.WebApi.Controllers.Account
+namespace Sample.WebApi.Controllers.Account
 {
     /// <summary>
     /// 后台系统登入

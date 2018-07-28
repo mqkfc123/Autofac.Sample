@@ -7,7 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-namespace MutualClass.WebApi.Areas.Mutual.Controllers.Scene
+namespace Sample.WebApi.Areas.Mutual.Controllers.Scene
 {
     /// <summary>
     /// 

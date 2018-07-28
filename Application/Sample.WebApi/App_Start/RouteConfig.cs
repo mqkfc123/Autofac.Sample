@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace MutualClass.WebApi
+namespace Sample.WebApi
 {
     public class RouteConfig
     {

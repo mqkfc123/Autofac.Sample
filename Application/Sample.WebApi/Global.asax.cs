@@ -8,10 +8,12 @@ using System.Web.Security;
 using System.Web.SessionState;
 using System.Web.Http;
 using Autofac;
-using MutualClass.WebApi.App_Start;
+using Sample.WebApi.App_Start;
 using Dragon.Core;
+using Dragon.Infrastructure.Redis;
+using System.Configuration;
 
-namespace MutualClass.WebApi
+namespace Sample.WebApi
 {
     public class Global : HttpApplication
     {
@@ -26,6 +28,8 @@ namespace MutualClass.WebApi
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
             var coreBuilder = new CoreBuilder();
+            coreBuilder.UserRedis(ConfigurationManager.ConnectionStrings["RedisConnectionString"].ConnectionString);
+
             coreBuilder.Build(); 
 
         }

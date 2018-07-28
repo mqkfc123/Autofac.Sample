@@ -7,9 +7,9 @@ using System.Web.Http.Dispatcher;
 using System.Web.Routing;
 using Swagger.Net;
 
-//[assembly: WebActivator.PreApplicationStartMethod(typeof(MutualClass.WebApi.App_Start.SwaggerNet), "PreStart")]
-//[assembly: WebActivator.PostApplicationStartMethod(typeof(MutualClass.WebApi.App_Start.SwaggerNet), "PostStart")]
-namespace MutualClass.WebApi.App_Start 
+//[assembly: WebActivator.PreApplicationStartMethod(typeof(Sample.WebApi.App_Start.SwaggerNet), "PreStart")]
+//[assembly: WebActivator.PostApplicationStartMethod(typeof(Sample.WebApi.App_Start.SwaggerNet), "PostStart")]
+namespace Sample.WebApi.App_Start 
 {
     public static class SwaggerNet 
     {
@@ -31,11 +31,11 @@ namespace MutualClass.WebApi.App_Start
             try
             {
                 config.Services.Replace(typeof(IDocumentationProvider),
-                    new XmlCommentDocumentationProvider(HttpContext.Current.Server.MapPath("~/bin/MutualClass.WebApi.XML")));
+                    new XmlCommentDocumentationProvider(HttpContext.Current.Server.MapPath("~/bin/Sample.WebApi.XML")));
             }
             catch (FileNotFoundException)
             {
-                throw new Exception("Please enable \"XML documentation file\" in project properties with default (bin\\MutualClass.WebApi.XML) value or edit value in App_Start\\SwaggerNet.cs");
+                throw new Exception("Please enable \"XML documentation file\" in project properties with default (bin\\Sample.WebApi.XML) value or edit value in App_Start\\SwaggerNet.cs");
             }
         }
     }
