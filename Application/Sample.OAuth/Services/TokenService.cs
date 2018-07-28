@@ -18,8 +18,8 @@ namespace Sample.OAuth.Services
 
         Task<bool> CheckToken(string accessToken);
     }
-
-    public class TokenService : ITokenService, IDisposable
+    // , IDisposable
+    public class TokenService : ITokenService
     {
         private readonly IDatabase _database;
         private readonly IConnectionMultiplexer _connectionMultiplexer;

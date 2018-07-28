@@ -12,7 +12,14 @@ namespace Sample.OAuth
             // Web API 配置和服务
 
             // Web API 路由
+
             config.MapHttpAttributeRoutes();
+            config.Routes.MapHttpRoute(
+              name: "OAuthApi",
+              routeTemplate: "OAuth/{controller}/{id}",
+              defaults: new { id = RouteParameter.Optional }
+           );
+           
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
