@@ -18,16 +18,6 @@ namespace Sample.WebApi.Areas.Mutual.Controllers.Scene
     public class TestController : ApiController
     {
         private readonly ILog _Logger = LogHelper.GetLogger(typeof(TestController));
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public TestController()
-        {
-
-        }
-
-
         /// <summary>
         /// 
         /// </summary>
