@@ -1,7 +1,7 @@
 ﻿using Dragon.Infrastructure.Mvc;
+using Dragon.OAuth.Models;
+using Dragon.OAuth.Services;
 using Newtonsoft.Json;
-using Sample.OAuth.Models;
-using Sample.OAuth.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

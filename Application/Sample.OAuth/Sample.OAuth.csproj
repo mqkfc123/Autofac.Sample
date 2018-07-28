@@ -187,11 +187,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AuthorizationModel.cs" />
-    <Compile Include="Models\TokenModel.cs" />
-    <Compile Include="OAuthAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\TokenService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -218,6 +214,10 @@
     <ProjectReference Include="..\..\Infrastructure\Dragon.Infrastructure\Dragon.Infrastructure.csproj">
       <Project>{6abde63c-b341-4434-8d11-d9525f07f369}</Project>
       <Name>Dragon.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\Dragon.OAuth\Dragon.OAuth.csproj">
+      <Project>{92c945d2-24d6-402f-aaba-166d2403b487}</Project>
+      <Name>Dragon.OAuth</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

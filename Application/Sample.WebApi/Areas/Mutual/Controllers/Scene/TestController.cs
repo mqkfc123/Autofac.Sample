@@ -1,6 +1,7 @@
 ﻿using Dragon.Core.Log4net;
 using Dragon.Infrastructure.Mvc;
-using Newtonsoft.Json;
+using Dragon.OAuth;
+using Newtonsoft.Json; 
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +12,8 @@ namespace Sample.WebApi.Areas.Mutual.Controllers.Scene
 {
     /// <summary>
     /// 
-    /// </summary>
-
+    /// </summary> 
+    [OAuth]
     [Route("api/Mutual/Scene")]
     public class TestController : ApiController
     {

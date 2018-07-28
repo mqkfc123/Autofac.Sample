@@ -245,6 +245,10 @@
       <Project>{6abde63c-b341-4434-8d11-d9525f07f369}</Project>
       <Name>Dragon.Infrastructure</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\Dragon.OAuth\Dragon.OAuth.csproj">
+      <Project>{92C945D2-24D6-402F-AABA-166D2403B487}</Project>
+      <Name>Dragon.OAuth</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
