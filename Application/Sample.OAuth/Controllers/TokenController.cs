@@ -41,12 +41,12 @@ namespace Sample.OAuth.Controllers
 
             switch (model.UserName)
             {
-                case "jkzl":
-                    if (model.Password != "jkzl1@#$")
+                case "dragon":
+                    if (model.Password != "dragon1@#$")
                         return new ApiResult("非法授权请求。", -20001);
                     break;
-                case "jkzlOrderCancel":
-                    if (model.Password != "jkzl1@#$")
+                case "dragonCancel":
+                    if (model.Password != "dragon1@#$")
                         return new ApiResult("非法授权请求。", -20001);
                     break;
                 default:
