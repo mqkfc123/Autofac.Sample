@@ -13,7 +13,9 @@ using System.Web.Http;
 
 namespace Sample.OAuth.Controllers
 {
-
+    /// <summary>
+    /// token
+    /// </summary>
     public class TokenController : ApiController
     {
         private readonly ITokenService _tokenService;
@@ -22,7 +24,9 @@ namespace Sample.OAuth.Controllers
         {
             _tokenService = tokenService;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
         public class GetTokenResultViewModel
         {
             [JsonProperty("access_token")]
